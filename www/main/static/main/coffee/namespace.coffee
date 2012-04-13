@@ -1,7 +1,7 @@
 # Change *namespace* to your namespace!
 # This contains the module definition factory function, application state,
 # events, and the router.
-this.namespace =
+this.logicstick =
   # Assist with code organization, by breaking up logical components of code
   # into modules.
   module: (->
@@ -14,7 +14,7 @@ this.namespace =
       return modules[name] if modules[name]
 
       # Create a module and save it under this name
-      return modules[name] = { Views: {} }
+      return modules[name] = { View: {} }
   )()
 
   # This is useful when developing if you don't want to use a
@@ -25,7 +25,7 @@ this.namespace =
     window.JST = window.JST || {}
 
     # Should be an instant synchronous way of getting the template, if it
-    # exists in the JST object.
+    # exists in,the JST object.
     return done(JST[path]) if JST[path]
 
     # Fetch it asynchronously if not available from JST

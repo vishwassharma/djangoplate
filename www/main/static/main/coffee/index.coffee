@@ -1,34 +1,18 @@
 # Shorthand the application namespace
-app = namespace.app
+app = logicstick.app
 
 # Include the example module
-Example = namespace.module "example"
+Home = logicstick.module "home"
 
 # Defining the application router, you can attach sub routers here.
 Router = Backbone.Router.extend
   routes:
     "": "index"
-    ":hash": "index"
 
   index: (hash) ->
-    route = this
-    tutorial = new Example.Views.Tutorial()
+    console.log "Am i actually working"
+    home = new Home.View.ListView
 
-    # Attach the tutorial to the DOM
-    tutorial.render (el) ->
-      $("#main").html el
-
-      # Fix for hashes in pushState and hash fragment
-      if hash && !route._alreadyTriggered
-        # Reset to home, pushState support automatically converts hashes
-        Backbone.history.navigate("", false)
-
-        # Trigger the default browser behavior
-        location.hash = hash
-
-        # Set an internal flag to stop recursive looping
-        route._alreadyTriggered = true
-  
 # Treat the jQuery ready function as the entry point to the application.
 # Inside this function, kick-off all initialization, everything up to this
 # point should be definitions.

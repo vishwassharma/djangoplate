@@ -1,13 +1,13 @@
 (function() {
 
-  this.namespace = {
+  this.logicstick = {
     module: (function() {
       var modules;
       modules = {};
       return function(name) {
         if (modules[name]) return modules[name];
         return modules[name] = {
-          Views: {}
+          View: {}
         };
       };
     })(),

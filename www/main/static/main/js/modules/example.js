@@ -9,12 +9,12 @@
       render: function(done) {
         var view;
         view = this;
-        return namespace.fetchTemplate(this.template, function(tmpl) {
+        return logicstick.fetchTemplate(this.template, function(tmpl) {
           view.el.innerHTML = tmpl();
           if (_.isFunction(done)) return done(view.el);
         });
       }
     });
-  })(namespace.module("example"));
+  })(logicstick.module("example"));
 
 }).call(this);

@@ -27,10 +27,10 @@
       view = this
 
       # Fetch the template, render it to the View element and call done.
-      namespace.fetchTemplate this.template, (tmpl) ->
+      logicstick.fetchTemplate this.template, (tmpl) ->
         view.el.innerHTML = tmpl()
 
         # If a done function is passed, call it with the element
         if _.isFunction(done)
           done(view.el)
-)(namespace.module("example"))
+)(logicstick.module("example"))

@@ -1,27 +1,18 @@
 (function() {
-  var Example, Router, app;
+  var Home, Router, app;
 
-  app = namespace.app;
+  app = logicstick.app;
 
-  Example = namespace.module("example");
+  Home = logicstick.module("home");
 
   Router = Backbone.Router.extend({
     routes: {
-      "": "index",
-      ":hash": "index"
+      "": "index"
     },
     index: function(hash) {
-      var route, tutorial;
-      route = this;
-      tutorial = new Example.Views.Tutorial();
-      return tutorial.render(function(el) {
-        $("#main").html(el);
-        if (hash && !route._alreadyTriggered) {
-          Backbone.history.navigate("", false);
-          location.hash = hash;
-          return route._alreadyTriggered = true;
-        }
-      });
+      var home;
+      console.log("Am i actually working");
+      return home = new Home.View.ListView;
     }
   });
 
